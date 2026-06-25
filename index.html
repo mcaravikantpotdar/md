@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown File Index</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        ul { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <h1>Repository Markdown Files</h1>
+    <ul id="md-list">Loading files...</ul>
+
+    <script>
+        // --- CONFIGURATION ---
+        const owner = 'YOUR_USERNAME'; 
+        const repo = 'YOUR_REPOSITORY';
+        const path = ''; // Leave blank for the root directory, or add a folder name like 'docs'
+        // ---------------------
+
+        async function fetchMarkdownFiles() {
+            const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+            const listElement = document.getElementById('md-list');
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Could not fetch repository data.');
+                
+                const files = await response.json();
+                listElement.innerHTML = ''; // Clear the loading text
+
+                // Filter for .md files
+                const mdFiles = files.filter(file => file.name.endsWith('.md'));
+
+                if (mdFiles.length === 0) {
+                    listElement.innerHTML = '<li>No markdown files found in this directory.</li>';
+                    return;
+                }
+
+                // Generate links
+                mdFiles.forEach(file => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    
+                    // If using GitHub Pages, Jekyll converts .md to .html automatically
+                    // You may need to change file.name to file.name.replace('.md', '.html') depending on your setup
+                    a.href = file.name; 
+                    a.textContent = file.name;
+                    
+                    li.appendChild(a);
+                    listElement.appendChild(li);
+                });
+
+            } catch (error) {
+                listElement.innerHTML = `<li style="color: red;">Error: ${error.message}</li>`;
+            }
+        }
+
+        fetchMarkdownFiles();
+    </script>
+</body>
+</html>
