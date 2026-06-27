@@ -3,51 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown File Index</title>
+    <title>Repository Document Viewer</title>
+    <!-- Include GitHub-like styling for beautiful Markdown rendering -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css">
+    <!-- Include the Markdown Parser Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        body { font-family: sans-serif; padding: 2rem; }
-        ul { line-height: 1.6; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        /* Sidebar for file navigation */
+        #sidebar {
+            width: 280px;
+            background: #f6f8fa;
+            border-right: 1px solid #d0d7de;
+            padding: 1.5rem;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        #sidebar h2 { font-size: 1.2rem; margin-top: 0; color: #24292f; }
+        #md-list { list-style: none; padding: 0; margin: 0; }
+        #md-list li { margin-bottom: 0.5rem; }
+        #md-list a {
+            color: #0969da;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: block;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        #md-list a:hover { background: #eaeef2; text-decoration: underline; }
+        
+        /* Main viewing area */
+        #content-area {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        /* Constrain width of reading material for better readability */
+        .markdown-body {
+            max-width: 850px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Repository Markdown Files</h1>
-    <ul id="md-list">Loading files...</ul>
+
+    <!-- SIDEBAR: Displays the list of files -->
+    <div id="sidebar">
+        <h2>Files</h2>
+        <ul id="md-list">Loading files...</ul>
+    </div>
+
+    <!-- MAIN AREA: Displays the rendered Markdown content -->
+    <div id="content-area">
+        <div id="viewer" class="markdown-body">
+            <h1>Welcome</h1>
+            <p>Select a Markdown file from the sidebar to view its formatted contents.</p>
+        </div>
+    </div>
 
     <script>
         // --- CONFIGURATION ---
         const owner = 'mcaravikantpotdar'; 
         const repo = 'md';
-        const path = ''; // Leave blank for the root directory, or add a folder name like 'docs'
+        const path = ''; // Leave blank for root, or use folder name like 'docs'
         // ---------------------
 
-        async function fetchMarkdownFiles() {
+        // 1. Fetch the files to populate the sidebar
+        async function loadSidebar() {
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
             const listElement = document.getElementById('md-list');
 
             try {
                 const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error('Could not fetch repository data.');
+                if (!response.ok) throw new Error('Failed to fetch repository files.');
                 
                 const files = await response.json();
-                listElement.innerHTML = ''; // Clear the loading text
+                listElement.innerHTML = ''; 
 
-                // Filter for .md files
                 const mdFiles = files.filter(file => file.name.endsWith('.md'));
 
                 if (mdFiles.length === 0) {
-                    listElement.innerHTML = '<li>No markdown files found in this directory.</li>';
+                    listElement.innerHTML = '<li>No .md files found.</li>';
                     return;
                 }
 
-                // Generate links
                 mdFiles.forEach(file => {
                     const li = document.createElement('li');
                     const a = document.createElement('a');
-                    
-                    // If using GitHub Pages, Jekyll converts .md to .html automatically
-                    // You may need to change file.name to file.name.replace('.md', '.html') depending on your setup
-                    a.href = file.name; 
+                    a.href = "#";
                     a.textContent = file.name;
+                    
+                    // Click event: instead of opening the file, load and parse it!
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        renderMarkdown(file.download_url);
+                    });
                     
                     li.appendChild(a);
                     listElement.appendChild(li);
@@ -58,7 +115,26 @@
             }
         }
 
-        fetchMarkdownFiles();
+        // 2. Fetch the text inside the selected file and convert it to HTML
+        async function renderMarkdown(downloadUrl) {
+            const viewer = document.getElementById('viewer');
+            viewer.innerHTML = '<p>Loading document contents...</p>';
+
+            try {
+                const response = await fetch(downloadUrl);
+                if (!response.ok) throw new Error('Could not read file content.');
+                
+                const markdownText = await response.text();
+                
+                // Use marked.js to convert markdown string to standard HTML
+                viewer.innerHTML = marked.parse(markdownText);
+            } catch (error) {
+                viewer.innerHTML = `<p style="color: red;">Error formatting file: ${error.message}</p>`;
+            }
+        }
+
+        // Initialize the page
+        loadSidebar();
     </script>
 </body>
 </html>
