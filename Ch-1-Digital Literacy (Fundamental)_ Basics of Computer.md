@@ -1,108 +1,155 @@
-# अध्याय - 1 (Chapter - 1)
-## डिजिटल साक्षरता: कंप्यूटर के मूल सिद्धांत (Basics of Computer)
+# Unit-1-Fundamentals of Computer / कंप्यूटर के मूल सिद्धांत
 
----
+### What is Computer? Define Computer. / कंप्यूटर क्या है? कंप्यूटर को परिभाषित करें।
 
-### 1.1 कंप्यूटर क्या है? (What is a Computer?)
-
-*हम अपने चारो तरफ स्मार्टफोन, स्मार्ट टीवी और लैपटॉप देखते हैं, लेकिन क्या आपने कभी सोचा है कि ये सब काम कैसे करते हैं? आइए इसे बिल्कुल शुरुआत से समझते हैं।*
-
-| English (The Concept) | हिंदी (सरल व्याख्या) |
+| English | हिंदी |
 | :--- | :--- |
-| **1. Simple Definition:** A computer is a smart electronic machine. It takes raw data from us, works on it step-by-step, and gives us a meaningful result. | **1. सरल परिभाषा:** कंप्यूटर एक स्मार्ट इलेक्ट्रॉनिक मशीन है। यह हमसे कच्चा डेटा लेता है, उस पर काम करता है, और हमें काम की जानकारी (रिजल्ट) देता है। |
-| **2. The Juice Mixer Example:** Think of making juice. You put raw fruits in (**Input**). The mixer grinds them (**Process**). Finally, you get a glass of juice (**Output**). | **2. जूस मिक्सर का उदाहरण:** जूस बनाने के बारे में सोचें। आप कच्चे फल डालते हैं (**Input**)। मिक्सर उन्हें पीसता है (**Process**)। अंत में, आपको एक ग्लास जूस मिलता है (**Output**)। |
-| **3. The IPO Cycle:** This is the universal rule every computer follows:<br>**Input** $\rightarrow$ **Process** $\rightarrow$ **Output** | **3. कार्यप्रणाली (IPO Cycle):** हर कंप्यूटर इसी एक नियम पर काम करता है:<br>**इनपुट** $\rightarrow$ **प्रोसेस** $\rightarrow$ **आउटपुट** |
-| **4. Golden Rule (GIGO):** Computers are 100% accurate, but they don't have their own brain. If you give wrong input, you get wrong output (Garbage In, Garbage Out). | **4. GIGO का नियम:** कंप्यूटर खुद कोई गलती नहीं करता। अगर हम गलत डेटा (Garbage In) डालेंगे, तो रिजल्ट भी गलत ही आएगा (Garbage Out)। |
-
-<details>
-<summary>🔍 <b>विस्तार से समझें: CPU के अंदर क्या होता है? / Deep Dive: Inside the CPU</b></summary>
-
-**English (The Restaurant Kitchen):**
-Everyone calls the CPU the "brain" of the computer, but how does it actually think? Imagine the CPU as a busy restaurant kitchen. It has three main areas:
-1. **Control Unit (CU) - The Manager:** The CU doesn't cook. It simply reads the orders (instructions) and tells everyone else what to do. 
-2. **ALU (Arithmetic Logic Unit) - The Chef:** This is where the actual work happens. It does all the math (like $5 + 5$) and makes logical decisions (like checking if your password is correct).
-3. **Memory Registers - The Kitchen Counter:** Before the Chef (ALU) can chop vegetables (process data), the veggies need to be placed on the counter. Registers are tiny, super-fast storage spots inside the CPU to hold data while it's being processed.
-
-**हिंदी (रेस्टोरेंट की रसोई):**
-हर कोई CPU को कंप्यूटर का "दिमाग" कहता है, लेकिन यह वास्तव में सोचता कैसे है? CPU की कल्पना एक व्यस्त रेस्टोरेंट की रसोई के रूप में करें। इसके तीन मुख्य भाग होते हैं:
-1. **कंट्रोल यूनिट (CU) - मैनेजर:** CU खुद कोई काम नहीं करता। यह सिर्फ हमारे निर्देश (ऑर्डर) पढ़ता है और बाकी हिस्सों को बताता है कि क्या करना है।
-2. **ALU (एरिथमेटिक लॉजिक यूनिट) - शेफ:** असली काम यहीं होता है। यह सारी गणित (जैसे $5 + 5$) करता है और लॉजिकल फैसले लेता है (जैसे यह चेक करना कि आपका पासवर्ड सही है या नहीं)।
-3. **मेमोरी रजिस्टर्स - रसोई का काउंटर:** इससे पहले कि शेफ (ALU) सब्जियां काटे, उन्हें काउंटर पर रखना पड़ता है। रजिस्टर्स CPU के अंदर बहुत छोटे और सुपर-फास्ट स्टोरेज होते हैं जो प्रोसेस होने वाले डेटा को पकड़ कर रखते हैं।
-
-</details>
+| Computer is an electronic device[cite: 3]. | कंप्यूटर एक इलेक्ट्रॉनिक उपकरण है[cite: 3]। |
+| It takes data and instructions as input[cite: 3]. | यह data और instructions को input के रूप में लेता है[cite: 3]। |
+| It processes the data according to the given instructions and gives information as output[cite: 3]. | यह दिए गए निर्देशों के अनुसार data को process करता है और output के रूप में information देता है[cite: 3]। |
 
 ---
 
-### 1.2 इनपुट डिवाइस (Input Devices)
+### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
+                  +---------------------------------------+
+                  |             Storage Unit              |
+                  |  +---------------------------------+  |
+                  |  |        Secondary Memory         |  |
+                  |  |     (HDD, SSD, CD, DVD)         |  |
+                  |  +---------------+-----------------+  |
+                  |                  ^                    |
+                  |                  |                    |
+                  |                  v                    |
+                  |  +---------------------------------+  |
+                  |  |         Primary Memory          |  |
+                  |  |          (RAM & ROM)            |  |
+                  |  +---------------+-----------------+  |
+                  +------------------|--------------------+
+                                     |
+                                     v
++---------------+      +-----------------+-----------------+      +---------------+
+|  Input Unit   |----->|        Control Unit (CU)          |----->|  Output Unit  |
+| (Keyboard,    | Data |-----------------------------------| Info |  (Monitor,    |
+|    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
++---------------+      +-----------------------------------+      +---------------+
 
-*कंप्यूटर हमारी भाषा (हिंदी या अंग्रेजी) नहीं समझता। उसे सिर्फ '0' और '1' समझ आता है। इनपुट डिवाइस हमारे ट्रांसलेटर (अनुवादक) हैं, जो हमारी बात को कंप्यूटर की भाषा में बदलते हैं।*
 
-| Device / उपकरण | How it works (English) | यह कैसे काम करता है (Hindi) |
-| :--- | :--- | :--- |
-| **Keyboard**<br>*(कीबोर्ड)* | When you press a key like 'A', it sends a specific electronic code to the CPU so it understands which letter you typed. | जब आप 'A' जैसी कोई की (key) दबाते हैं, तो यह CPU को एक खास इलेक्ट्रॉनिक कोड भेजता है जिससे कंप्यूटर समझ जाता है कि आपने क्या टाइप किया है। |
-| **Mouse / Touchpad**<br>*(माउस)* | It acts as a pointing device. When you move your hand, it tracks the motion and moves the arrow (cursor) on the screen. | यह एक पॉइंटिंग डिवाइस है। जब आप अपना हाथ हिलाते हैं, तो यह उस गति को ट्रैक करता है और स्क्रीन पर तीर (कर्सर) को घुमाता है। |
-| **Barcode Reader**<br>*(बारकोड रीडर)* | You see this in supermarkets. It shines a laser on the black and white lines of a product tag to instantly read its price and name. | इसे आप सुपरमार्केट में देखते हैं। यह प्रोडक्ट के टैग पर बनी काली और सफेद लाइनों पर लेजर डालता है और तुरंत उसकी कीमत और नाम पढ़ लेता है। |
-
-<details>
-<summary>🔍 <b>विस्तार से समझें: साधारण स्कैनर और OCR में क्या अंतर है? / Deep Dive: Scanner vs. OCR</b></summary>
-
-**English:**
-If you place a printed page in a normal **Scanner**, it just takes a digital photograph of it. If there is a spelling mistake in that photo, you cannot delete it or type over it.
-But **OCR (Optical Character Recognition)** is smarter. It doesn't just take a photo; it actually *reads* the shapes of the letters. It converts the printed page into a digital text file (like an MS Word document). Because of OCR, you can scan a textbook page and then edit the text on your computer!
-
-**हिंदी:**
-अगर आप एक सामान्य **स्कैनर** में एक छपा हुआ पेज रखते हैं, तो वह बस उसकी एक डिजिटल फोटो खींच लेता है। अगर उस फोटो में कोई स्पेलिंग मिस्टेक है, तो आप उसे मिटा या बदल नहीं सकते।
-लेकिन **OCR (ऑप्टिकल कैरेक्टर रिकग्निशन)** ज्यादा स्मार्ट है। यह सिर्फ फोटो नहीं लेता; यह वास्तव में अक्षरों के आकार को *पढ़ता* है। यह छपे हुए पेज को एक डिजिटल टेक्स्ट फाइल (जैसे MS Word) में बदल देता है। OCR की वजह से ही, आप किसी किताब के पेज को स्कैन करके कंप्यूटर पर उसे एडिट (बदल) कर सकते हैं!
-
-</details>
-
----
-
-### 1.3 आउटपुट डिवाइस (Output Devices)
-
-*प्रोसेसिंग पूरी होने के बाद, कंप्यूटर हमें रिजल्ट कैसे दिखाएगा? आउटपुट डिवाइस कंप्यूटर के रिजल्ट को वापस हमारी समझ में आने वाली भाषा (टेक्स्ट, चित्र या आवाज़) में बदलते हैं।*
-
-| Device / उपकरण | How it works (English) | यह कैसे काम करता है (Hindi) |
-| :--- | :--- | :--- |
-| **Monitor**<br>*(मॉनिटर)* | It shows results on a screen. This is called a **"Soft Copy"** because you can only see it, not touch the actual document. | यह स्क्रीन पर रिजल्ट दिखाता है। इसे **"सॉफ्ट कॉपी" (Soft Copy)** कहते हैं क्योंकि आप इसे सिर्फ देख सकते हैं, कागज की तरह छू नहीं सकते। |
-| **Printer**<br>*(प्रिंटर)* | It prints the result on physical paper. This is called a **"Hard Copy"**. | यह रिजल्ट को असली कागज पर छापता है। इसे **"हार्ड कॉपी" (Hard Copy)** कहा जाता है। |
-| **Speaker**<br>*(स्पीकर)* | Converts digital signals into sound waves so you can hear music or videos. | यह डिजिटल सिग्नल को ध्वनि (sound) में बदलता है ताकि आप गाने या वीडियो की आवाज़ सुन सकें। |
-
-<details>
-<summary>🔍 <b>अतीत से वर्तमान: प्रिंटर का विकास / Past to Present: Evolution of Printers</b></summary>
-
-**English (Dot Matrix vs. Laser):**
-In the 1990s, offices used **Dot Matrix Printers**. They worked like typewriters—tiny metal pins physically hammered an ink ribbon against the paper to print dots. They were very noisy (making a *zzzt-zzzt* sound) and very slow.
-Today, we use **Laser Printers**. They completely changed the game. Instead of physical hammering, they use a silent laser beam and static electricity to stick dry plastic ink powder (Toner) onto the paper, melting it instantly. That is why paper coming out of a laser printer always feels a little warm!
-
-**हिंदी (डॉट मैट्रिक्स से लेजर तक):**
-1990 के दशक में, ऑफिसों में **डॉट मैट्रिक्स प्रिंटर** का इस्तेमाल होता था। वे टाइपराइटर की तरह काम करते थे—छोटे धातु के पिन कागज पर स्याही वाले रिबन पर जोर से टकराते थे। वे बहुत शोर करते थे और बहुत धीमे थे।
-आज हम **लेजर प्रिंटर** का उपयोग करते हैं। इन्होने सब कुछ बदल दिया। टकराने के बजाय, ये कागज पर सूखा इंक पाउडर (Toner) चिपकाने के लिए लेजर बीम और स्थिर बिजली (static electricity) का उपयोग करते हैं और उसे तुरंत पिघला देते हैं। यही कारण है कि लेजर प्रिंटर से निकलने वाला कागज हमेशा थोड़ा गर्म लगता है!
-
-</details>
+| English | हिंदी |
+| :--- | :--- |
+| **Input Unit:** The computer receives data and instructions from the input unit[cite: 3]. | **Input Unit:** कंप्यूटर input unit से data और instructions प्राप्त करता है[cite: 3]। |
+| The input unit changes the data and instructions from human language to binary language[cite: 3]. | यह unit डेटा और निर्देशों को human language से binary language में बदलता है[cite: 3]। |
+| All the input devices, like the keyboard and mouse, are connected to the input unit of the computer[cite: 3]. | कीबोर्ड और माउस जैसे सभी input devices कंप्यूटर की input unit से जुड़े होते हैं[cite: 3]। |
+| **Output Unit:** The computer provides information from the Output Unit[cite: 3]. | **Output Unit:** कंप्यूटर output unit से information प्रदान करता है[cite: 3]। |
+| The output unit changes the information from binary language to human language[cite: 3]. | यह unit information को binary language से human language में बदलता है[cite: 3]। |
+| All the output devices, like the monitor and printer, are connected to the output unit of the computer[cite: 3]. | मॉनिटर और प्रिंटर जैसे सभी output devices कंप्यूटर की output unit से जुड़े होते हैं[cite: 3]। |
+| **CPU:** The full form of CPU is Central Processing Unit[cite: 3]. | **CPU:** CPU का full form Central Processing Unit है[cite: 3]। |
+| It is also called the brain of the computer[cite: 3]. | इसे कंप्यूटर का brain भी कहा जाता है[cite: 3]। |
+| All the processing of data is done by the CPU[cite: 3]. | डेटा की सारी processing CPU द्वारा की जाती है[cite: 3]। |
+| There are two main parts in a CPU[cite: 3]: | CPU में दो मुख्य भाग होते हैं[cite: 3]: |
+| 1. **ALU:** The full form of ALU is Arithmetic & Logic Unit[cite: 3]. | 1. **ALU:** ALU का full form Arithmetic & Logic Unit है[cite: 3]। |
+| It does all the mathematical and logical processing of the data[cite: 3]. | यह data की सारी mathematical और logical processing करता है[cite: 3]। |
+| 2. **CU:** The full form of CU is Control Unit[cite: 3]. | 2. **CU:** CU का full form Control Unit है[cite: 3]। |
+| It is also called the heart of the computer[cite: 3]. | इसे कंप्यूटर का heart भी कहा जाता है[cite: 3]। |
+| It controls all the other units of the computer system[cite: 3]. | यह computer system की सभी अन्य units को control करता है[cite: 3]। |
+| **MU:** Memory Unit is used to store data, instructions, and information in the computer[cite: 3]. | **MU:** Memory Unit का उपयोग कंप्यूटर में data, instructions और information को store करने के लिए किया जाता है[cite: 3]। |
 
 ---
 
-### 1.4 कंप्यूटर मेमोरी (Computer Memory)
+### Types of Memories in a Computer / कंप्यूटर में मेमोरी के प्रकार
 
-*जैसे इंसानों को बातें याद रखने के लिए दिमाग की जरूरत होती है, वैसे ही कंप्यूटर को काम करने और फाइलें सुरक्षित रखने के लिए मेमोरी की जरूरत होती है।*
-
-| Memory Type | English (Concept) | हिंदी (सरल व्याख्या) |
-| :--- | :--- | :--- |
-| **RAM**<br>*(रैम)* | **Primary / Temporary Memory:** It holds the app you are using *right now*. If you are playing a game, the game is running in the RAM. | **प्राइमरी / अस्थायी मेमोरी:** यह उस ऐप को संभालती है जिसका आप *अभी* इस्तेमाल कर रहे हैं। अगर आप गेम खेल रहे हैं, तो गेम RAM में चल रहा है। |
-| **Hard Disk / SSD**<br>*(हार्ड डिस्क)* | **Secondary / Permanent Storage:** This is where your photos, movies, and files live permanently, even when the computer is turned off. | **सेकेंडरी / स्थायी स्टोरेज:** यहीं पर आपकी तस्वीरें, फिल्में और फाइलें हमेशा के लिए सेव रहती हैं, चाहे कंप्यूटर बंद ही क्यों न हो जाए। |
-
-<details>
-<summary>🔍 <b>विस्तार से समझें: RAM इतनी 'भुलक्कड़' क्यों होती है? / Deep Dive: Why is RAM Volatile?</b></summary>
-
-**English (The Chalkboard vs. The Notebook):**
-RAM is known as **Volatile Memory** (temporary). Think of RAM like a school chalkboard. You can write on it quickly while the class is running, but once the bell rings (power goes off), the board is wiped completely clean. RAM forgets everything the moment electricity stops flowing. This is why if the power cuts before you hit "Save", your work is lost!
-On the other hand, your Hard Disk is like a permanent notebook. Once you write something with a pen, it stays there forever, even if you close the book.
-
-**हिंदी (ब्लैकबोर्ड बनाम नोटबुक):**
-RAM को **वोलेटाइल मेमोरी (अस्थायी मेमोरी)** कहा जाता है। RAM को स्कूल के ब्लैकबोर्ड की तरह समझें। जब तक क्लास चल रही है आप उस पर तेजी से लिख सकते हैं, लेकिन क्लास खत्म होते ही (पावर बंद होते ही) बोर्ड को पूरी तरह से साफ कर दिया जाता है। बिजली जाते ही RAM सब कुछ भूल जाती है। इसीलिए अगर "सेव" करने से पहले बिजली चली जाए, तो आपका काम उड़ जाता है!
-दूसरी ओर, आपकी हार्ड डिस्क एक पक्की नोटबुक की तरह है। एक बार जब आप पेन से कुछ लिख देते हैं, तो वह हमेशा वहीं रहता है, चाहे आप किताब बंद ही क्यों न कर दें।
-
-</details>
+| English | हिंदी |
+| :--- | :--- |
+| There are two types of memories in a computer[cite: 3]. | कंप्यूटर में दो प्रकार की memories होती हैं[cite: 3]। |
+| 1. **Primary Memory (Main Memory):** Primary memory is directly connected with the CPU[cite: 3]. | 1. **Primary Memory (Main Memory):** Primary memory सीधे CPU से जुड़ी होती है[cite: 3]। |
+| It is very fast as compared to Secondary memory[cite: 3]. | Secondary memory की तुलना में यह बहुत तेज़ होती है[cite: 3]। |
+| **ROM** is used to store some special instructions that help the computer start[cite: 3]. | **ROM** का उपयोग कुछ विशेष instructions को store करने के लिए किया जाता है जो कंप्यूटर को start होने में मदद करते हैं[cite: 3]। |
+| ROM is a permanent memory and never loses its stored data[cite: 3]. | ROM एक permanent memory है और यह अपना stored data कभी नहीं खोता है[cite: 3]। |
+| **RAM** is used to temporarily store data and instructions for currently running programs[cite: 3]. | **RAM** का उपयोग वर्तमान में चल रहे programs के लिए data और instructions को temporarily store करने के लिए किया जाता है[cite: 3]। |
+| RAM is a volatile memory and loses its stored data after a power reset[cite: 3]. | RAM एक volatile memory है और power reset के बाद यह अपना stored data खो देता है[cite: 3]। |
+| 2. **Secondary Memory (Auxiliary Memory):** Secondary memory is not directly connected with the CPU[cite: 3]. | 2. **Secondary Memory (Auxiliary Memory):** Secondary memory सीधे CPU से जुड़ी नहीं होती है[cite: 3]। |
+| It is a non-volatile memory used to store data, instructions, and information permanently in the computer[cite: 3]. | यह एक non-volatile memory है जिसका उपयोग कंप्यूटर में data, instructions और information को permanently store करने के लिए किया जाता है[cite: 3]। |
+| HDD, SSD, CD, and DVD are some examples of secondary memories[cite: 3]. | HDD, SSD, CD और DVD सेकेंडरी मेमोरी के कुछ उदाहरण हैं[cite: 3]। |
 
 ---
+
+### What are the units of memory? / मेमोरी की इकाइयाँ क्या हैं?
+
+| English | हिंदी |
+| :--- | :--- |
+| Memory units are used to measure and represent data[cite: 1]. | Memory units का उपयोग data को measure और represent करने के लिए किया जाता है[cite: 1]। |
+| **Bit:** It is the smallest memory unit to measure data stored in memory[cite: 1]. | **Bit:** यह मेमोरी में stored data को measure करने की सबसे छोटी unit है[cite: 1]। |
+
+* **1 Bit** = Value of 0 or 1[cite: 1]
+* **1 Nibble** = 4 bits[cite: 1]
+* **1 Byte (B)** = 8 bits[cite: 1]
+* **1 Kilobyte (KB)** = 1024 bytes[cite: 1]
+* **1 Megabyte (MB)** = 1024 KB[cite: 1]
+* **1 Gigabyte (GB)** = 1024 MB[cite: 1]
+* **1 Terabyte (TB)** = 1024 GB[cite: 1]
+
+---
+
+### What do you mean by Input-Devices? Explain some Input Devices. / इनपुट-डिवाइस से आपका क्या अभिप्राय है? कुछ इनपुट डिवाइस के बारे में बताइए।
+
+| English | हिंदी |
+| :--- | :--- |
+| Input devices are those which are connected to the input unit of the computer[cite: 3]. | Input devices वे होते हैं जो कंप्यूटर की input unit से जुड़े होते हैं[cite: 3]। |
+| Input devices are used to provide data and instructions to the computer[cite: 3]. | Input devices का उपयोग कंप्यूटर को data और instructions प्रदान करने के लिए किया जाता है[cite: 3]। |
+
+1. **Keyboard:** It is the most common input device used with computers[cite: 3]. It is used to enter alphabets, numbers, symbols and special instructions into the computer[cite: 3].
+*कीबोर्ड: यह कंप्यूटर के साथ उपयोग किया जाने वाला सबसे आम input device है[cite: 3]। इसका उपयोग कंप्यूटर में alphabets, numbers, symbols और विशेष instructions दर्ज करने के लिए किया जाता है[cite: 3]।*
+
+2. **Mouse:** It is the most common pointing device used with computers[cite: 3]. It is used to control the pointer-arrow and cursor on the screen[cite: 3].
+*माउस: यह कंप्यूटर के साथ उपयोग किया जाने वाला सबसे आम pointing device है[cite: 3]। इसका उपयोग स्क्रीन पर pointer-arrow और cursor को control करने के लिए किया जाता है[cite: 3]।*
+
+3. **Scanner:** It is used to make a digital copy of paper documents[cite: 3]. It scans the paper document and stores its digital copy in the computer[cite: 3]. There are three types of scanners: (i) Flat-bed Scanner, (ii) Drum Scanner, (iii) Line-Scanner or Hand-held Scanner[cite: 3].
+*स्कैनर: इसका उपयोग कागज़ के दस्तावेज़ों की digital copy बनाने के लिए किया जाता है[cite: 3]। यह कागज़ के दस्तावेज़ को scan करता है और इसकी digital copy कंप्यूटर में store करता है[cite: 3]। स्कैनर तीन प्रकार के होते हैं: (i) Flat-bed Scanner, (ii) Drum Scanner, (iii) Line-Scanner या Hand-held Scanner[cite: 3] Rial।*
+
+4. **Digital Camera:** It is used to take photos and videos and store them into the computer[cite: 3]. Digital camera is used for video conferencing[cite: 3].
+*डिजिटल कैमरा: इसका उपयोग photos और videos लेने और उन्हें कंप्यूटर में store करने के लिए किया जाता है[cite: 3]। Digital camera का उपयोग video conferencing के लिए किया जाता है[cite: 3]।*
+
+5. **Joy-stick:** Joy stick is also a pointing device used for playing video games[cite: 3]. It has a stick attached to a base that can move in all directions like up-down-right-left[cite: 3].
+*जॉय-स्टिक: Joy stick भी एक pointing device है जिसका उपयोग video games खेलने के लिए किया जाता है[cite: 3]। इसके base पर एक stick लगी होती है जो up-down-right-left सभी दिशाओं में घूम सकती है[cite: 3]।*
+
+6. **Touch-Screen:** It is an input device as well as an output device[cite: 3]. We can give input by touching different areas and at the same time we can see the information on it[cite: 3].
+*टच-स्क्रीन: यह एक input device होने के साथ-साथ एक output device भी है[cite: 3]। हम स्क्रीन पर अलग-अलग क्षेत्रों को छूकर input दे सकते हैं और साथ ही उस पर information देख सकते हैं[cite: 3]仗*
+
+7. **Light pen (or stylus):** It is a pen-shaped input device that is used to draw or write directly on the computer screen[cite: 3]. Light-pen is used on CRT Monitors and Stylus is used on LCD Monitors[cite: 3].
+*लाइटपेन (या स्टाइलस): यह एक pen के आकार का input device है जिसका उपयोग कंप्यूटर स्क्रीन पर सीधे draw या write करने के लिए किया जाता है[cite: 3]। Light-pen का उपयोग CRT Monitors पर किया जाता है और Stylus का उपयोग LCD Monitors पर किया जाता है[cite: 3]।*
+
+8. **BCR:** Its full-form is Bar Code Reader[cite: 3]. It is used to scan bar-codes, which are information stored in a set of lines to identify items in stores[cite: 3].
+*BCR: इसका full-form Bar Code Reader है[cite: 3]। इसका उपयोग bar-codes को scan करने के लिए किया जाता है[cite: 3]। Bar-codes लाइनों के सेट में stored information होती है जिसका उपयोग स्टोर्स में items की पहचान करने के लिए किया जाता है[cite: 3]।*
+
+9. **MICR:** Its full-form is Magnetic Ink Character Reader[cite: 3]. It is used in Banks to read information printed with Magnetic Ink[cite: 3].
+*MICR: इसका full-form Magnetic Ink Character Reader है[cite: 3]। इसका उपयोग Banks में Magnetic Ink से प्रिंट की गई information को पढ़ने के लिए किया जाता है[cite: 3]।*
+
+10. **OCR:** Its full form is Optical Character Recogniser[cite: 3]. It recognizes text from a scanned document and makes an editable digital copy[cite: 3].
+*OCR: इसका full form Optical Character Recogniser है[cite: 3]। यह scan किए गए दस्तावेज़ से text को पहचानता है और एक editable digital copy बनाता है[cite: 3]।*
+
+---
+
+### What do you mean by Output-Devices? Explain some Output Devices. / आउटपुट-डिवाइस से आपका क्या अभिप्राय है? कुछ आउटपुट डिवाइस के बारे में बताइए।
+
+| English | हिंदी |
+| :--- | :--- |
+| Output devices are those which are connected to the output unit of the computer[cite: 3]. | Output devices वे होते हैं जो कंप्यूटर की output unit से जुड़े होते हैं[cite: 3]। |
+| Output devices are used to get information from the computer[cite: 3]. | Output devices का उपयोग कंप्यूटर से information प्राप्त करने के लिए किया जाता है[cite: 3]। |
+
+1. **Monitor (VDU):** Monitor is the most commonly used output device, also known as VDU (Visual Display Unit)[cite: 3]. It looks like a TV set and information displayed on it is called "soft-copy"[cite: 3]. Monitors are of two types: (i) CRT, (ii) LCD[cite: 3].
+*मॉनिटर (VDU): Monitor सबसे अधिक इस्तेमाल किया जाने वाला output device है, जिसे VDU (Visual Display Unit) के नाम से भी जाना जाता है[cite: 3]। यह एक TV सेट की तरह दिखता है और इस पर प्रदर्शित होने वाली information को "soft-copy" कहा जाता है[cite: 3]। मॉनिटर दो प्रकार के होते हैं: (i) CRT, (ii) LCD[cite: 3]।*
+
+2. **Printer:** It is an output device used to print information on paper, which is known as "Hard-copy"[cite: 3]. Printers are divided into two types[cite: 3]:
+*प्रिंटर: यह एक output device है जिसका उपयोग कागज़ पर information को प्रिंट करने के लिए किया जाता है, जिसे "Hard-copy" कहा जाता है[cite: 3]। प्रिंटर दो प्रकार के होते हैं[cite: 3]:*
+    * **(i) Impact Printers:** The printing mechanism directly presses against the paper[cite: 3]. They are very noisy, slow, and inexpensive[cite: 3]. Examples: Dot-Matrix Printer (character printer), Chain Printer (line printer), Drum Printer (page-printer)[cite: 3].
+        *(i) Impact Printers: इनमें printing mechanism सीधे कागज़ पर दबाव डालता है[cite: 3]। ये बहुत noisy, धीमे और सस्ते होते हैं[cite: 3]। उदाहरण: Dot-Matrix Printer (character printer), Chain Printer (line printer), Drum Printer (page-printer)[cite: 3]।*
+    * **(ii) Non-Impact Printers:** The printing mechanism does not press against the paper[cite: 3]. They are less noisy, faster, expensive, and have high print quality[cite: 3]. Examples: Inkjet Printer (line printer), Laser Printer (page printer)[cite: 3].
+        *(ii) Non-Impact Printers: इनमें printing mechanism कागज़ पर दबाव नहीं डालता है[cite: 3]। ये कम noisy, तेज़, महंगे होते हैं और इनकी प्रिंट क्वालिटी अच्छी होती है[cite: 3]। उदाहरण: Inkjet Printer (line printer), Laser Printer (page printer)[cite: 3]।*
+
+3. **Plotter:** It is used to draw high quality designs on large sheets of paper or canvas, like designs of buildings, ships, and aircraft[cite: 3]. There are two types: (i) Flat-bed plotter, (ii) Drum Plotter[cite: 3].
+*प्लॉटर: इसका उपयोग कागज़ या कैनवास की बड़ी शीट पर high quality designs बनाने के लिए किया जाता है, जैसे इमारतों, जहाजों और विमानों के डिज़ाइन[cite: 3]। प्लॉटर दो प्रकार के होते हैं: (i) Flat-bed plotter, (ii) Drum Plotter[cite: 3]।*
+
+4. **Speaker:** Speakers are used to get sound output from the computer to listen to voices during online meetings, music, and system sounds[cite: 3].
+*स्पीकर: Speakers का उपयोग कंप्यूटर से sound output प्राप्त करने के लिए किया जाता है ताकि ऑनलाइन मीटिंग के दौरान आवाज़, संगीत और सिस्टम साउंड सुना जा सके[cite: 3]।*
+
+5. **Projector:** A projector is an output device that presents images onto a large projection screen to show photos, videos and presentations[cite: 3]. There are three types: (i) CRT, (ii) LCD, (iii) DLP Projectors[cite: 3].
+*प्रोजेक्टर: Projector एक output device है जो बड़ी स्क्रीन पर images को प्रोजेक्ट करता है ताकि फोटो, वीडियो और presentations को दिखाया जा सके[cite: 3]। यह तीन प्रकार के होते हैं: (i) CRT, (ii) LCD, (iii) DLP Projectors[cite: 3]।*
