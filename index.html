@@ -3,68 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repository Document Viewer</title>
-    <!-- Include GitHub-like styling for beautiful Markdown rendering -->
+    <title>Repository Document Hub</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css">
-    <!-- Include the Markdown Parser Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+
     <style>
+        :root {
+            --sidebar-width: 300px;
+            --primary-color: #0969da;
+            --bg-sidebar: #f6f8fa;
+            --border-color: #d0d7de;
+            --text-main: #24292f;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             height: 100vh;
+            color: var(--text-main);
+            overflow: hidden;
         }
-        /* Sidebar for file navigation */
+
+        /* --- MOBILE TOP BAR --- */
+        #mobile-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+            padding: 0 1rem;
+            z-index: 100;
+            justify-content: space-between;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        #menu-toggle:hover { background: #0000000d; }
+
+        #mobile-title {
+            font-weight: 600;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70%;
+        }
+
+        /* --- SIDEBAR PANEL --- */
         #sidebar {
-            width: 280px;
-            background: #f6f8fa;
-            border-right: 1px solid #d0d7de;
+            width: var(--sidebar-width);
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
             padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar-header h2 { font-size: 1.1rem; margin: 0; font-weight: 600; }
+
+        .sidebar-content {
+            flex: 1;
             overflow-y: auto;
-            box-sizing: border-box;
+            padding: 1rem;
         }
-        #sidebar h2 { font-size: 1.2rem; margin-top: 0; color: #24292f; }
+
         #md-list { list-style: none; padding: 0; margin: 0; }
-        #md-list li { margin-bottom: 0.5rem; }
-        #md-list a {
-            color: #0969da;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: block;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-        #md-list a:hover { background: #eaeef2; text-decoration: underline; }
+        #md-list li { margin-bottom: 0.25rem; }
         
-        /* Main viewing area */
+        #md-list a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        #md-list a:hover { background: #eaeef2; }
+        #md-list li.active a {
+            background: #e2e9f3;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* --- MAIN CONTENT AREA --- */
         #content-area {
             flex: 1;
-            padding: 2rem;
+            padding: 2.5rem;
             overflow-y: auto;
             box-sizing: border-box;
+            background: #ffffff;
         }
-        /* Constrain width of reading material for better readability */
+
         .markdown-body {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* --- LOADING & BACKDROP ANIMATIONS --- */
+        .spinner {
+            animation: rotate 1s linear infinite;
+            color: #57606a;
+        }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        #sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            #mobile-header { display: flex; }
+            
+            #sidebar {
+                position: fixed;
+                top: 0; left: 0; bottom: 0;
+                transform: translateX(-100%);
+            }
+            #sidebar.open { transform: translateX(0); }
+            #sidebar.open + #sidebar-overlay { display: block; opacity: 1; }
+
+            #content-area {
+                padding: 1.5rem;
+                margin-top: 56px;
+                height: calc(100vh - 56px);
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- SIDEBAR: Displays the list of files -->
+    <div id="mobile-header">
+        <button id="menu-toggle" aria-label="Toggle Menu"><i data-lucide="menu"></i></button>
+        <div id="mobile-title">Docs Index</div>
+        <div style="width: 40px;"></div> </div>
+
     <div id="sidebar">
-        <h2>Files</h2>
-        <ul id="md-list">Loading files...</ul>
+        <div class="sidebar-header">
+            <i data-lucide="folder-open" style="color: var(--primary-color)"></i>
+            <h2>Documentation</h2>
+        </div>
+        <div class="sidebar-content">
+            <ul id="md-list"><div style="display:flex; gap:8px; font-size:0.9rem;"><i data-lucide="loader-2" class="spinner"></i> Loading...</div></ul>
+        </div>
     </div>
 
-    <!-- MAIN AREA: Displays the rendered Markdown content -->
+    <div id="sidebar-overlay"></div>
+
     <div id="content-area">
         <div id="viewer" class="markdown-body">
-            <h1>Welcome</h1>
-            <p>Select a Markdown file from the sidebar to view its formatted contents.</p>
+            <h1>Welcome to the Hub</h1>
+            <p>Select a markdown file from the list navigation to cleanly parse and render its content here.</p>
         </div>
     </div>
 
@@ -75,14 +203,26 @@
         const path = ''; // Leave blank for root, or use folder name like 'docs'
         // ---------------------
 
-        // 1. Fetch the files to populate the sidebar
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileTitle = document.getElementById('mobile-title');
+
+        // Mobile sidebar navigation toggles
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+        }
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Fetch directory files tree
         async function loadSidebar() {
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
             const listElement = document.getElementById('md-list');
 
             try {
                 const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error('Failed to fetch repository files.');
+                if (!response.ok) throw new Error('Network connection mapping error.');
                 
                 const files = await response.json();
                 listElement.innerHTML = ''; 
@@ -90,7 +230,7 @@
                 const mdFiles = files.filter(file => file.name.endsWith('.md'));
 
                 if (mdFiles.length === 0) {
-                    listElement.innerHTML = '<li>No .md files found.</li>';
+                    listElement.innerHTML = '<div style="font-size:0.9rem; color:#57606a;">No files found.</div>';
                     return;
                 }
 
@@ -98,43 +238,60 @@
                     const li = document.createElement('li');
                     const a = document.createElement('a');
                     a.href = "#";
-                    a.textContent = file.name;
                     
-                    // Click event: instead of opening the file, load and parse it!
+                    // Strip the extension name for cleaner visual listings
+                    const visualName = file.name.replace('.md', '');
+                    a.innerHTML = `<i data-lucide="file-text" style="width:16px; height:16px;"></i> <span>${visualName}</span>`;
+                    
                     a.addEventListener('click', (e) => {
                         e.preventDefault();
+                        
+                        // Manage UI selections updates
+                        document.querySelectorAll('#md-list li').forEach(item => item.classList.remove('active'));
+                        li.classList.add('active');
+                        
+                        mobileTitle.textContent = visualName;
+                        if(window.innerWidth <= 768) toggleMenu(); // auto close drawer panel
+                        
                         renderMarkdown(file.download_url);
                     });
                     
                     li.appendChild(a);
                     listElement.appendChild(li);
                 });
+                
+                // Re-instantiate icons mapping framework dynamically 
+                lucide.createIcons();
 
             } catch (error) {
-                listElement.innerHTML = `<li style="color: red;">Error: ${error.message}</li>`;
+                listElement.innerHTML = `<div style="color:red; font-size:0.9rem;"><i data-lucide="alert-circle"></i> Error loading structure.</div>`;
+                lucide.createIcons();
             }
         }
 
-        // 2. Fetch the text inside the selected file and convert it to HTML
+        // Fetch source strings target raw block and convert data mapping values
         async function renderMarkdown(downloadUrl) {
             const viewer = document.getElementById('viewer');
-            viewer.innerHTML = '<p>Loading document contents...</p>';
+            viewer.innerHTML = '<div style="display:flex; gap:8px; align-items:center;"><i data-lucide="loader-2" class="spinner"></i> Parsing contents...</div>';
+            lucide.createIcons();
 
             try {
                 const response = await fetch(downloadUrl);
-                if (!response.ok) throw new Error('Could not read file content.');
+                if (!response.ok) throw new Error('File parse read blocks rejected.');
                 
                 const markdownText = await response.text();
-                
-                // Use marked.js to convert markdown string to standard HTML
                 viewer.innerHTML = marked.parse(markdownText);
+                
+                // Trigger dynamic runtime formatting over codeblocks injections
+                Prism.highlightAllUnder(viewer);
             } catch (error) {
-                viewer.innerHTML = `<p style="color: red;">Error formatting file: ${error.message}</p>`;
+                viewer.innerHTML = `<h3>Error</h3><p style="color:red;">${error.message}</p>`;
             }
         }
 
-        // Initialize the page
+        // Initialize engine UI build configurations
         loadSidebar();
+        lucide.createIcons();
     </script>
 </body>
 </html>
