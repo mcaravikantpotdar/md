@@ -34,7 +34,7 @@
 | (Keyboard,    | Data |-----------------------------------| Info |  (Monitor,    |
 |    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
 +---------------+      +-----------------------------------+      +---------------+
-
+```
 | English | हिंदी |
 | --- | --- |
 | **Input Unit:** The computer receives data and instructions from the input unit. | **Input Unit:** कंप्यूटर input unit से data और instructions प्राप्त करता है। |
