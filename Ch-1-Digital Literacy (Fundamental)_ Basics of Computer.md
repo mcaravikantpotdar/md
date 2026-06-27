@@ -12,26 +12,25 @@
 
 ### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
 
-```mermaid
-flowchart LR
-    Input([Input Unit<br>Keyboard, Mouse]) -- Data --> CPU
-
-    subgraph CPU_Block [CPU - Central Processing Unit]
-        direction TB
-        CU[Control Unit]
-        ALU[Arithmetic & Logic Unit]
-    end
-
-    subgraph Memory_Block [Storage Unit]
-        direction TB
-        PM[Primary Memory<br>RAM & ROM]
-        SM[Secondary Memory<br>HDD, SSD, CD]
-    end
-
-    CPU_Block <-->|Store / Retrieve| Memory_Block
-    CPU -- Information --> Output([Output Unit<br>Monitor, Printer])
-    
-    style Input fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style Output fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style CPU_Block fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Memory_Block fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+```text
+                      +---------------------------------------+
+                      |             Storage Unit              |
+                      |  +---------------------------------+  |
+                      |  |        Secondary Memory         |  |
+                      |  |     (HDD, SSD, CD, DVD)         |  |
+                      |  +---------------+-----------------+  |
+                      |                  ^                    |
+                      |                  |                    |
+                      |                  v                    |
+                      |  +---------------------------------+  |
+                      |  |         Primary Memory          |  |
+                      |  |          (RAM & ROM)            |  |
+                      |  +---------------+-----------------+  |
+                      +------------------|--------------------+
+                                         |
+                                         v
++---------------+      +-----------------+-----------------+      +---------------+
+|  Input Unit   |----->|        Control Unit (CU)          |----->|  Output Unit  |
+| (Keyboard,    | Data |-----------------------------------| Info |  (Monitor,    |
+|    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
++---------------+      +-----------------------------------+      +---------------+
