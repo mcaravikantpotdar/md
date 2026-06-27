@@ -1,4 +1,3 @@
-```markdown
 # Unit-1-Fundamentals of Computer / कंप्यूटर के मूल सिद्धांत
 
 ### What is Computer? Define Computer. / कंप्यूटर क्या है? कंप्यूटर को परिभाषित करें।
@@ -13,7 +12,7 @@
 
 ### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
 
-```text
+
                       +---------------------------------------+
                       |             Storage Unit              |
                       |  +---------------------------------+  |
