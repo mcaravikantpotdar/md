@@ -14,10 +14,6 @@
 
 
 
-**System Flow / सिस्टम प्रवाह:**
-* **Input Unit** $\rightarrow$ Sends Data $\rightarrow$ **CPU (CU + ALU)** * **CPU** $\leftrightarrow$ Stores/Retrieves $\leftrightarrow$ **Memory Unit**
-* **CPU** $\rightarrow$ Sends Information $\rightarrow$ **Output Unit**
-
 | English | हिंदी |
 | :--- | :--- |
 | **Input Unit:** The computer receives data and instructions from the input unit. | **Input Unit:** कंप्यूटर input unit से data और instructions प्राप्त करता है। |
