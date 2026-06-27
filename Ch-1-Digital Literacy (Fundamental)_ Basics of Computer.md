@@ -12,27 +12,11 @@
 
 ### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
 
-                      +---------------------------------------+
-                      |             Storage Unit              |
-                      |  +---------------------------------+  |
-                      |  |        Secondary Memory         |  |
-                      |  |     (HDD, SSD, CD, DVD)         |  |
-                      |  +---------------+-----------------+  |
-                      |                  ^                    |
-                      |                  |                    |
-                      |                  v                    |
-                      |  +---------------------------------+  |
-                      |  |         Primary Memory          |  |
-                      |  |          (RAM & ROM)            |  |
-                      |  +---------------+-----------------+  |
-                      +------------------|--------------------+
-                                         |
-                                         v
-+---------------+      +-----------------+-----------------+      +---------------+
-|  Input Unit   |----->|        Control Unit (CU)          |----->|  Output Unit  |
-| (Keyboard,    | Data |-----------------------------------| Info |  (Monitor,    |
-|    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
-+---------------+      +-----------------------------------+      +---------------+
+
+
+**System Flow / सिस्टम प्रवाह:**
+* **Input Unit** $\rightarrow$ Sends Data $\rightarrow$ **CPU (CU + ALU)** * **CPU** $\leftrightarrow$ Stores/Retrieves $\leftrightarrow$ **Memory Unit**
+* **CPU** $\rightarrow$ Sends Information $\rightarrow$ **Output Unit**
 
 | English | हिंदी |
 | :--- | :--- |
