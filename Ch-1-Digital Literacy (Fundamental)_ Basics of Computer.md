@@ -12,36 +12,27 @@
 
 ### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
 
-
-
-
-
-                  +---------------------------------------+
-                  |             Storage Unit              |
-                  |  +---------------------------------+  |
-                  |  |        Secondary Memory         |  |
-                  |  |     (HDD, SSD, CD, DVD)         |  |
-                  |  +---------------+-----------------+  |
-                  |                  ^                    |
-                  |                  |                    |
-                  |                  v                    |
-                  |  +---------------------------------+  |
-                  |  |         Primary Memory          |  |
-                  |  |          (RAM & ROM)            |  |
-                  |  +---------------+-----------------+  |
-                  +------------------|--------------------+
-                                     |
-                                     v
-
-
-
+                      +---------------------------------------+
+                      |             Storage Unit              |
+                      |  +---------------------------------+  |
+                      |  |        Secondary Memory         |  |
+                      |  |     (HDD, SSD, CD, DVD)         |  |
+                      |  +---------------+-----------------+  |
+                      |                  ^                    |
+                      |                  |                    |
+                      |                  v                    |
+                      |  +---------------------------------+  |
+                      |  |         Primary Memory          |  |
+                      |  |          (RAM & ROM)            |  |
+                      |  +---------------+-----------------+  |
+                      +------------------|--------------------+
+                                         |
+                                         v
 +---------------+      +-----------------+-----------------+      +---------------+
 |  Input Unit   |----->|        Control Unit (CU)          |----->|  Output Unit  |
 | (Keyboard,    | Data |-----------------------------------| Info |  (Monitor,    |
 |    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
 +---------------+      +-----------------------------------+      +---------------+
-
-
 
 | English | हिंदी |
 | :--- | :--- |
@@ -109,7 +100,7 @@
 *कीबोर्ड: यह कंप्यूटर के साथ उपयोग किया जाने वाला सबसे आम input device है। इसका उपयोग कंप्यूटर में alphabets, numbers, symbols और विशेष instructions दर्ज करने के लिए किया जाता है।*
 
 2. **Mouse:** It is the most common pointing device used with computers. It is used to control the pointer-arrow and cursor on the screen.
-*माउस: यह कंप्यूटर के साथ उपयोग किया जाने वाला सबसे आम pointing device है। इसका उपयोग स्क्रीन पर pointer-arrow tobacco और cursor को control करने के लिए किया जाता है।*
+*माउस: यह कंप्यूटर के साथ उपयोग किया जाने वाला सबसे आम pointing device है। इसका उपयोग स्क्रीन पर pointer-arrow और cursor को control करने के लिए किया जाता है।*
 
 3. **Scanner:** It is used to make a digital copy of paper documents. It scans the paper document and stores its digital copy in the computer. There are three types of scanners: (i) Flat-bed Scanner, (ii) Drum Scanner, (iii) Line-Scanner or Hand-held Scanner.
 *स्कैनर: इसका उपयोग कागज़ के दस्तावेज़ों की digital copy बनाने के लिए किया जाता है। यह कागज़ के दस्तावेज़ को scan करता है और इसकी digital copy कंप्यूटर में store करता है। स्कैनर तीन प्रकार के होते हैं: (i) Flat-bed Scanner, (ii) Drum Scanner, (iii) Line-Scanner या Hand-held Scanner।*
@@ -145,7 +136,7 @@
 | Output devices are used to get information from the computer. | Output devices का उपयोग कंप्यूटर से information प्राप्त करने के लिए किया जाता है। |
 
 1. **Monitor (VDU):** Monitor is the most commonly used output device, also known as VDU (Visual Display Unit). It looks like a TV set and information displayed on it is called "soft-copy". Monitors are of two types: (i) CRT, (ii) LCD.
-*मॉनिटर (VDU): Monitor सबसे अधिक इस्तेमाल किया जाने वाला output device है, जिसे VDU (Visual Display Unit) के नाम से भी जाना जाता है। यह एक TV सेट की तरह दिखता है और इस पर प्रदर्शित होने वाली information को "soft-copy" कहा जाता है। मॉनिटर दो प्रकार के होते हैं: (i) CRT, (ii) LCD Crow।*
+*मॉनिटर (VDU): Monitor सबसे अधिक इस्तेमाल किया जाने वाला output device है, जिसे VDU (Visual Display Unit) के नाम से भी जाना जाता है। यह एक TV सेट की तरह दिखता है और इस पर प्रदर्शित होने वाली information को "soft-copy" कहा जाता है। मॉनिटर दो प्रकार के होते हैं: (i) CRT, (ii) LCD।*
 
 2. **Printer:** It is an output device used to print information on paper, which is known as "Hard-copy". Printers are divided into two types:
 *प्रिंटर: यह एक output device है जिसका उपयोग कागज़ पर information को प्रिंट करने के लिए किया जाता है, जिसे "Hard-copy" कहा जाता है। प्रिंटर दो प्रकार के होते हैं:*
@@ -162,5 +153,3 @@
 
 5. **Projector:** A projector is an output device that presents images onto a large projection screen to show photos, videos and presentations. There are three types: (i) CRT, (ii) LCD, (iii) DLP Projectors.
 *प्रोजेक्टर: Projector एक output device है जो बड़ी स्क्रीन पर images को प्रोजेक्ट करता है ताकि फोटो, वीडियो और presentations को दिखाया जा सके। यह तीन प्रकार के होते हैं: (i) CRT, (ii) LCD, (iii) DLP Projectors।*
-
-
