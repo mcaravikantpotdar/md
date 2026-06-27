@@ -13,9 +13,9 @@
 ### Block Diagram of Computer / कंप्यूटर का ब्लॉक डायग्राम
 
 
-```
 
-```
+
+
                   +---------------------------------------+
                   |             Storage Unit              |
                   |  +---------------------------------+  |
@@ -33,7 +33,7 @@
                                      |
                                      v
 
-```
+
 
 +---------------+      +-----------------+-----------------+      +---------------+
 |  Input Unit   |----->|        Control Unit (CU)          |----->|  Output Unit  |
@@ -41,7 +41,7 @@
 |    Mouse)     |      |   Arithmetic & Logic Unit (ALU)   |      |   Printer)    |
 +---------------+      +-----------------------------------+      +---------------+
 
-```
+
 
 | English | हिंदी |
 | :--- | :--- |
@@ -163,4 +163,4 @@
 5. **Projector:** A projector is an output device that presents images onto a large projection screen to show photos, videos and presentations. There are three types: (i) CRT, (ii) LCD, (iii) DLP Projectors.
 *प्रोजेक्टर: Projector एक output device है जो बड़ी स्क्रीन पर images को प्रोजेक्ट करता है ताकि फोटो, वीडियो और presentations को दिखाया जा सके। यह तीन प्रकार के होते हैं: (i) CRT, (ii) LCD, (iii) DLP Projectors।*
 
-```
+
